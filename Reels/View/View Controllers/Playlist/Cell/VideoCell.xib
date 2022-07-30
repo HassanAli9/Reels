@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="gTV-IL-0wX" customClass="VideoCell" customModule="Reels" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="148" height="237"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="148" height="237"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-Xn-oor">
+                        <rect key="frame" x="8" y="8" width="132" height="221"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6DS-CY-9aA">
+                                <rect key="frame" x="0.0" y="0.0" width="132" height="221"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhD-QI-qdm">
+                                <rect key="frame" x="8" y="196" width="116" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6DS-CY-9aA" firstAttribute="top" secondItem="x9b-Xn-oor" secondAttribute="top" id="6D1-Ng-uq9"/>
+                            <constraint firstItem="6DS-CY-9aA" firstAttribute="leading" secondItem="x9b-Xn-oor" secondAttribute="leading" id="97O-0W-ucP"/>
+                            <constraint firstAttribute="bottom" secondItem="6DS-CY-9aA" secondAttribute="bottom" id="JWc-xk-i7i"/>
+                            <constraint firstAttribute="bottom" secondItem="GhD-QI-qdm" secondAttribute="bottom" constant="8" id="SYC-2g-ACv"/>
+                            <constraint firstAttribute="trailing" secondItem="GhD-QI-qdm" secondAttribute="trailing" constant="8" id="W2t-HO-Hm1"/>
+                            <constraint firstAttribute="trailing" secondItem="6DS-CY-9aA" secondAttribute="trailing" id="jmg-Hw-Z3f"/>
+                            <constraint firstItem="GhD-QI-qdm" firstAttribute="leading" secondItem="x9b-Xn-oor" secondAttribute="leading" constant="8" id="zlG-MS-1VN"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="x9b-Xn-oor" secondAttribute="bottom" constant="8" id="0KJ-5S-5mu"/>
+                <constraint firstAttribute="trailing" secondItem="x9b-Xn-oor" secondAttribute="trailing" constant="8" id="4Gz-Ya-yOv"/>
+                <constraint firstItem="x9b-Xn-oor" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="aW1-4K-mJc"/>
+                <constraint firstItem="x9b-Xn-oor" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="f88-LY-IJ9"/>
+            </constraints>
+            <size key="customSize" width="148" height="237"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="containerView" destination="x9b-Xn-oor" id="5qd-cu-GCj"/>
+                <outlet property="title" destination="GhD-QI-qdm" id="37W-8k-zuP"/>
+                <outlet property="videoImg" destination="6DS-CY-9aA" id="AFu-R0-Pr2"/>
+            </connections>
+            <point key="canvasLocation" x="202.89855072463769" y="114.17410714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>
