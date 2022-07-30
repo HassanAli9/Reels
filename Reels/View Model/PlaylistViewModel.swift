@@ -8,12 +8,12 @@
 import Foundation
 import Reachability
 
-class PlaylistViewModel {
+class PlaylistViewModel: NSObject {
     
     let networkService = NetworkService.shared
     let reachability = try! Reachability()
     
-    
+    //MARK: Binders
     var bindDataFromVMToVC  : ()->() = {}
     var bindErrorFromVMToVC : ()->() = {}
     var bindConnectionState:  ()->() = {}
@@ -26,16 +26,14 @@ class PlaylistViewModel {
     
     
     
-    var playlistModel: PlaylistModel!
-    {
+    var playlistModel: PlaylistModel! {
         didSet
         {
             bindDataFromVMToVC()
         }
     }
     
-    var errorMessage: String!
-    {
+    var errorMessage: String! {
         didSet
         {
             bindErrorFromVMToVC()
@@ -44,12 +42,12 @@ class PlaylistViewModel {
     
     
     
-    init() {
+     override init() {
+        super.init()
         getData()
-        checkConnection()
     }
     
-    
+    //MARK: Connection Status
     func checkConnection(){
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         do{
@@ -79,8 +77,9 @@ class PlaylistViewModel {
         }
     }
     
+    
+    //MARK: GET Data From API
     func getData() {
-        
         networkService.fetchData(calssName: PlaylistModel.self) { response  in
             
             switch response {

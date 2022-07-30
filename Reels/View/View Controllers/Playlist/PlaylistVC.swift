@@ -11,35 +11,90 @@ import SkeletonView
 
 class PlaylistVC: UIViewController {
     
-    var playlistVM : PlaylistViewModel!
-    var model: PlaylistModel?
     
-  
-    
+    //MARK: OUTLET
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var connectionImage: UIImageView!
+    
+    var playlistVM : PlaylistViewModel!
+    var model: PlaylistModel?
+    var connectionImage: UIImageView!
+  
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupVM()
         setupCollectionView()
-        connectionImage.isHidden = true
         collectionView.showAnimatedGradientSkeleton()
-        
-        let imageName = "yourImage.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-        view.addSubview(imageView)
-
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let  image = UIImage(named: "Internet_connecion")
+        connectionImage = UIImageView(image: image!)
+        connectionImage.frame = view.bounds
+        view.addSubview(connectionImage)
+        connectionImage.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         playlistVM.checkConnection()
     }
+    
+   
+    
+
+}
+
+
+//MARK: CollectionView
+extension PlaylistVC : UICollectionViewDelegate, SkeletonCollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return VideoCell.identefire
+    }
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return 5
+    }
+    
+   
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return model?.items?.count ?? 0
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identefire, for: indexPath) as! VideoCell
+       
+        if let snippet = model?.items?[indexPath.row].snippet {
+            cell.setup(model: snippet)
+        }
+        
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let videoID = model?.items?[indexPath.row].snippet?.resourceID?.videoID {
+            playVideo(videoID: videoID)
+
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.height - 8)
+    }
+  
+}
+
+//MARK: Setup
+extension PlaylistVC {
     
     func setupCollectionView() {
         
@@ -90,47 +145,5 @@ class PlaylistVC: UIViewController {
         playerView.playVideo()
 
     }
-    
-  
-
-
-}
-
-extension PlaylistVC : UICollectionViewDelegate, SkeletonCollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return VideoCell.identefire
-    }
-    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
-        return 5
-    }
-    
-   
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model?.items.count ?? 0
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCell.identefire, for: indexPath) as! VideoCell
-       
-        cell.setup(model: (model?.items[indexPath.row].snippet)!)
-        
-        return cell
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        playVideo(videoID: (model?.items[indexPath.row].snippet.resourceID.videoID)!)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 3 , height: collectionView.frame.height - 8)
-    }
-    
-    
-    
     
 }

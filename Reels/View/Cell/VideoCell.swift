@@ -33,11 +33,16 @@ class VideoCell: UICollectionViewCell {
     
     func setup(model: Snippet) {
         
-        videoImg.setImg(url: model.thumbnails.medium.url)
         
-        let newText: String = String(model.title.replacingOccurrences(of: "Swift Design Patterns (", with: "").dropLast())
-        title.text = newText
-        print(model.title)
+        if let img = model.thumbnails?.medium?.url {
+            videoImg.setImg(url: img )
+        }
+        
+        if let title = model.title {
+            let newText: String = String(title.replacingOccurrences(of: "Swift Design Patterns (", with: "").dropLast())
+            self.title.text = newText
+        }
+       
     }
     
 }

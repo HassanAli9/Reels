@@ -49,10 +49,6 @@
                                     <constraint firstItem="lFO-di-QgX" firstAttribute="centerX" secondItem="hpN-a0-X2T" secondAttribute="centerX" id="xZO-UJ-2or"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Internet_connecion" translatesAutoresizingMaskIntoConstraints="NO" id="jr5-k7-uG7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,12 +56,8 @@
                             <constraint firstItem="hpN-a0-X2T" firstAttribute="top" secondItem="fyq-fU-Tk2" secondAttribute="bottom" constant="8" symbolic="YES" id="3lx-IT-CGX"/>
                             <constraint firstItem="fyq-fU-Tk2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="6p8-X6-DOc"/>
                             <constraint firstItem="fyq-fU-Tk2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="7La-kN-4MS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jr5-k7-uG7" secondAttribute="bottom" id="Drv-7x-Heh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hpN-a0-X2T" secondAttribute="trailing" id="LDZ-gn-eTK"/>
-                            <constraint firstItem="jr5-k7-uG7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QEe-aS-VCP"/>
                             <constraint firstItem="hpN-a0-X2T" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Tsn-YJ-fHO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jr5-k7-uG7" secondAttribute="trailing" id="Wli-bg-qmh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="jr5-k7-uG7" secondAttribute="top" id="Z2J-rb-dSZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fyq-fU-Tk2" secondAttribute="trailing" constant="8" id="dD3-Ck-hBN"/>
                             <constraint firstItem="hpN-a0-X2T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rLC-vG-q34"/>
                         </constraints>
@@ -73,7 +65,6 @@
                     <navigationItem key="navigationItem" title="Reels" id="2v5-aV-5I9"/>
                     <connections>
                         <outlet property="collectionView" destination="fyq-fU-Tk2" id="Vs6-51-bIc"/>
-                        <outlet property="connectionImage" destination="jr5-k7-uG7" id="Uq0-ln-gSS"/>
                         <outlet property="playerView" destination="hpN-a0-X2T" id="YEx-Pn-N8d"/>
                     </connections>
                 </viewController>
@@ -101,7 +92,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Internet_connecion" width="785" height="798"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

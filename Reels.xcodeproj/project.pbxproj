@@ -110,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				5CFED71528941467003C0C4D /* Storyboard */,
+				5C3260AD2894718D00CCD8A3 /* Cell */,
 				5CFED712289413CA003C0C4D /* View Controllers */,
 			);
 			path = View;
@@ -201,7 +202,6 @@
 		5CFED7232894641B003C0C4D /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
-				5C3260AD2894718D00CCD8A3 /* Cell */,
 				5CFED72428946439003C0C4D /* PlaylistVC.swift */,
 			);
 			path = Playlist;

@@ -10,23 +10,23 @@ import Foundation
 
 // MARK: - Welcome
 struct PlaylistModel: Codable {
-    let items: [Item]
+    let items: [Item]?
 }
 
 // MARK: - Item
 struct Item: Codable {
-    let snippet: Snippet
+    let snippet: Snippet?
 }
 
 // MARK: - Snippet
 struct Snippet: Codable {
-    let publishedAt: String
-    let channelID, title, snippetDescription: String
-    let thumbnails: Thumbnails
-    let channelTitle, playlistID: String
-    let position: Int
-    let resourceID: ResourceID
-    let videoOwnerChannelTitle, videoOwnerChannelID: String
+    let publishedAt: String?
+    let channelID, title, snippetDescription: String?
+    let thumbnails: Thumbnails?
+    let channelTitle, playlistID: String?
+    let position: Int?
+    let resourceID: ResourceID?
+    let videoOwnerChannelTitle, videoOwnerChannelID: String?
 
     enum CodingKeys: String, CodingKey {
         case publishedAt
@@ -44,7 +44,7 @@ struct Snippet: Codable {
 
 // MARK: - ResourceID
 struct ResourceID: Codable {
-    let kind, videoID: String
+    let kind, videoID: String?
 
     enum CodingKeys: String, CodingKey {
         case kind
@@ -54,7 +54,7 @@ struct ResourceID: Codable {
 
 // MARK: - Thumbnails
 struct Thumbnails: Codable {
-    let thumbnailsDefault, medium, high: Default
+    let thumbnailsDefault, medium, high: Default?
     let standard, maxres: Default?
 
     enum CodingKeys: String, CodingKey {
@@ -65,11 +65,11 @@ struct Thumbnails: Codable {
 
 // MARK: - Default
 struct Default: Codable {
-    let url: String
-    let width, height: Int
+    let url: String?
+    let width, height: Int?
 }
 
 // MARK: - PageInfo
 struct PageInfo: Codable {
-    let totalResults, resultsPerPage: Int
+    let totalResults, resultsPerPage: Int?
 }
