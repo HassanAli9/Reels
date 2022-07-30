@@ -27,6 +27,12 @@ class PlaylistVC: UIViewController {
         setupCollectionView()
         connectionImage.isHidden = true
         collectionView.showAnimatedGradientSkeleton()
+        
+        let imageName = "yourImage.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        view.addSubview(imageView)
 
     }
     
