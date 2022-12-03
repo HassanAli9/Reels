@@ -80,7 +80,7 @@ class PlaylistViewModel: NSObject {
     
     //MARK: GET Data From API
     func getData() {
-        networkService.fetchData(calssName: PlaylistModel.self) { response  in
+        networkService.fetchData(className: PlaylistModel.self) { response  in
             
             switch response {
             case .success(let playlistModel):

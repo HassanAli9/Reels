@@ -1081,6 +1081,7 @@
 			baseConfigurationReference = 98FF0A87119B4148FA12A8A12712ECF9 /* youtube-ios-player-helper.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/youtube-ios-player-helper";
+				DEVELOPMENT_TEAM = 28JGUM872K;
 				IBSC_MODULE = youtube_ios_player_helper;
 				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/ResourceBundle-Assets-youtube-ios-player-helper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1294,6 +1295,7 @@
 			baseConfigurationReference = 14A8F113CACBDF77920E1081E9DD8782 /* youtube-ios-player-helper.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/youtube-ios-player-helper";
+				DEVELOPMENT_TEAM = 28JGUM872K;
 				IBSC_MODULE = youtube_ios_player_helper;
 				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/ResourceBundle-Assets-youtube-ios-player-helper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
