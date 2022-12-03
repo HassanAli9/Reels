@@ -9,14 +9,14 @@ import Foundation
 import Reachability
 
 class PlaylistViewModel: NSObject {
-    
     let networkService = NetworkService.shared
     let reachability = try! Reachability()
     
-    //MARK: Binders
-    var bindDataFromVMToVC  : ()->() = {}
-    var bindErrorFromVMToVC : ()->() = {}
-    var bindConnectionState:  ()->() = {}
+    // MARK: Binders
+
+    var bindDataFromVMToVC: ()->() = {}
+    var bindErrorFromVMToVC: ()->() = {}
+    var bindConnectionState: ()->() = {}
    
     var isConnected: Bool! {
         didSet {
@@ -24,41 +24,35 @@ class PlaylistViewModel: NSObject {
         }
     }
     
-    
-    
     var playlistModel: PlaylistModel! {
-        didSet
-        {
+        didSet {
             bindDataFromVMToVC()
         }
     }
     
     var errorMessage: String! {
-        didSet
-        {
+        didSet {
             bindErrorFromVMToVC()
         }
     }
     
-    
-    
-     override init() {
+    override init() {
         super.init()
         getData()
     }
     
-    //MARK: Connection Status
-    func checkConnection(){
+    // MARK: Connection Status
+
+    func checkConnection() {
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
-        do{
+        do {
             try reachability.startNotifier()
-        }catch{
+        } catch {
             print("could not start reachability notifier")
         }
     }
     
-    @objc func reachabilityChanged(note: Notification){
-        
+    @objc func reachabilityChanged(note: Notification) {
         let reachability = note.object as! Reachability
         
         switch reachability.connection {
@@ -77,22 +71,19 @@ class PlaylistViewModel: NSObject {
         }
     }
     
-    
-    //MARK: GET Data From API
+    // MARK: GET Data From API
+
     func getData() {
-        networkService.fetchData(className: PlaylistModel.self) { response  in
+        networkService.fetchData(className: PlaylistModel.self) { response in
             
             switch response {
             case .success(let playlistModel):
-                if let playlistModel = playlistModel
-                {
+                if let playlistModel = playlistModel {
                     self.playlistModel = playlistModel
                 }
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-        
     }
-    
 }

@@ -13,7 +13,7 @@ class NetworkService {
     
     private init(){}
     
-    func fetchData<T: Decodable>(className: T.Type ,completionHandler: @escaping (Result<T? , Error>) -> ()) {
+    func fetchData<T: Decodable>(className: T.Type, completionHandler: @escaping (Result<T? , Error>) -> ()) {
           AF.request(Constants.API_URL).validate().responseDecodable(of: T.self) { response in
               switch response.result
               {

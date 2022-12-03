@@ -14,8 +14,8 @@ class VideoCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     
-    static let identefire = "VideoCell"
-    static let nib = UINib(nibName: identefire, bundle: nil)
+    static let identifier = "VideoCell"
+    static let nib = UINib(nibName: identifier, bundle: nil)
     
     override func awakeFromNib() {
         super.awakeFromNib()
