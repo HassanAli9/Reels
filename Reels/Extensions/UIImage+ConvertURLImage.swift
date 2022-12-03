@@ -7,26 +7,8 @@
 
 import Foundation
 import UIKit
-extension UIImageView
-{
-    func setImg(url : String)
-    {
-        if let urlPostImg = URL(string: url) {
-            DispatchQueue.global().async {
-                do {
-                    let data = try Data(contentsOf: urlPostImg)
-                    DispatchQueue.main.async {
-                        self.image = UIImage(data: data)
-                    }
-                } catch(let error) {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
-    
+extension UIImageView {
     func circuleImage() {
         self.layer.cornerRadius = self.frame.height / 2
     }
 }
-

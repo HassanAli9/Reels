@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class VideoCell: UICollectionViewCell {
     
@@ -32,10 +33,8 @@ class VideoCell: UICollectionViewCell {
     }
     
     func setup(model: Snippet) {
-        
-        
-        if let img = model.thumbnails?.medium?.url {
-            videoImg.setImg(url: img )
+        if let imgURL = model.thumbnails?.medium?.url {
+            videoImg.kf.setImage(with: URL(string: imgURL)!)
         }
         
         if let title = model.title {

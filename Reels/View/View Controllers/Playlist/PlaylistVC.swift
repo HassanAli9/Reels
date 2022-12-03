@@ -66,9 +66,10 @@ extension PlaylistVC: UICollectionViewDelegate, SkeletonCollectionViewDataSource
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
         if let videoID = model?.items?[indexPath.row].snippet?.resourceID?.videoID {
-            playVideo(videoID: videoID)
+           playVideo(videoID: videoID)
+            
         }
     }
     
