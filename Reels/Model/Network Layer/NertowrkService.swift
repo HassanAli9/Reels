@@ -19,11 +19,9 @@ class NetworkService {
               {
               case .success:
                   guard let data = response.value else {return}
-                  print(data)
                   completionHandler( .success(data))
 
               case .failure(let error):
-                  print(error)
                   completionHandler(.failure(error))
               }
           }
